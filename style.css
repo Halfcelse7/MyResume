@@ -566,11 +566,6 @@ footer {
     display: flex;
     justify-content: center;
 }
-    .hero-image img {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-    }
 @media (max-width: 900px) {
     .hero-wrapper {
         flex-direction: column-reverse;
@@ -580,4 +575,5 @@ footer {
     .hero-socials {
         justify-content: center;
     }
+
 }
