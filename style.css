@@ -626,6 +626,14 @@ footer {
     text-transform: uppercase;
     color: var(--text-muted-light);
 }
-
-
+.exp-tools {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.experience-card:hover .exp-tools {
+    opacity: 1;
+}
 
