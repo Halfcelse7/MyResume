@@ -46,18 +46,24 @@ document.querySelectorAll(".experience-card, .project-row, .grid-card").forEach(
     observer.observe(el);
 });
 const sections = document.querySelectorAll("[data-theme]");
-const waveObserver = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.body.classList.remove("wave-green", "wave-blue");
+const overlay = document.getElementById("color-overlay");
 
+const waveObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
                 const theme = entry.target.dataset.theme;
-                if (theme === "green") document.body.classList.add("wave-green");
-                if (theme === "blue") document.body.classList.add("wave-blue");
+                overlay.classList.remove("wave-active-green", "wave-active-blue");
+                void overlay.offsetWidth; 
+                if (theme === "green") {
+                    overlay.classList.add("wave-active-green");
+                } 
+                if (theme === "blue") {
+                    overlay.classList.add("wave-active-blue");
+                }
             }
         });
     },
-    { threshold: 0.6 }
+    { threshold: 0.4 }
 );
-sections.forEach(section => waveObserver.observe(section));
+sections.forEach((section) => waveObserver.observe(section));
