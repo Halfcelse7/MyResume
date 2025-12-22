@@ -34,3 +34,14 @@ card.setAttribute("tabindex", "0");
 card.addEventListener("keydown", e => {
     if (e.key === "Enter") card.click();
 });
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+        }
+    });
+});
+
+document.querySelectorAll(".experience-card, .project-row, .grid-card").forEach(el => {
+    observer.observe(el);
+});
