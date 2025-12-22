@@ -311,13 +311,32 @@ header {
     position: relative;
 }
 .grid-card::before {
-    content: "COURSE";
+    content: attr(data-domain);
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 15px;
     font-size: 0.65rem;
-    opacity: 0.3;
+    font-weight: 600;
     letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    opacity: 0.75;
+}
+.grid-card[data-domain="DESIGN"]::before {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+.grid-card[data-domain="ANALYSIS"]::before {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+.grid-card[data-domain="TREATMENT"]::before {
+    background: #fff3e0;
+    color: #e65100;
+}
+.grid-card[data-domain="POLICY"]::before {
+    background: #f3e5f5;
+    color: #4a148c;
 }
     .grid-card:hover {
         border-color: var(--text-black);
@@ -659,5 +678,6 @@ footer {
         transform: translateY(0);
     }
 }
+
 
 
