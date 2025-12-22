@@ -336,7 +336,37 @@ header {
     max-width: 900px;
     margin: 0 auto;
 }
-
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.modal-content {
+    background: #121212;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+}
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+.modal-content ul {
+    padding-left: 20px;
+}
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
 .skill-card {
     width: 130px;
     height: 130px;
@@ -349,7 +379,7 @@ header {
     justify-content: center;
     gap: 15px;
     transition: all 0.3s ease;
-    cursor: default;
+    cursor: pointer;
 }
     .skill-card i {
         font-size: 2.5rem;
@@ -372,6 +402,14 @@ header {
         .skill-card:hover span {
             color: var(--text-white);
         }
+.skill-card::after {
+    content: "+";
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-weight: 700;
+    opacity: 0.4;
+}
 .cert-grid {
     display: flex;
     flex-wrap: wrap;
@@ -577,3 +615,4 @@ footer {
     }
 
 }
+
