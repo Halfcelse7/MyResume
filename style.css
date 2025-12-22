@@ -713,6 +713,10 @@ section[data-theme="green"] {
 section[data-theme="blue"] {
     box-shadow: inset 0 -80px 80px -80px rgba(13, 71, 161, 0.15);
 }
+#academic .grid-layout {
+    margin-top: 40px;
+}
+
 
 
 
