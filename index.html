@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <section id="about" class="container hero-section">
+    <section id="about" class="container hero-section" data-theme="green">
         <div class="hero-wrapper">
             <div class="hero-text">
                 <h1 class="hero-name">Hello, I am <br> İsmet Uygur</h1>
@@ -187,7 +187,7 @@
     </section>
 
 
-    <section id="skills" class="container section-padding">
+    <section id="skills" class="container section-padding" data-theme="green">
         <h2 class="section-title">My Skills & Languages</h2>
 
         <div class="skills-grid">
@@ -255,16 +255,16 @@
         </div>
     </section>
 
-    <section id="contact" class="container contact-section">
+    <section id="contact" class="container contact-section" data-theme="blue">
         <h2 class="section-title">Contact Me</h2>
 
         <div class="contact-wrapper">
             <div class="contact-form-container">
-                <form action="https://formspree.io/f/xldqkdvz" class="contact-form">
-                    <input type="text" placeholder="Your name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="url" placeholder="Your website (if exists)">
-                    <textarea placeholder="How can I help?" rows="5" required></textarea>
+                <form action="https://formspree.io/f/xldqkdvz" method="POST" class="contact-form">    
+                    <input type="text" name="name" placeholder="Your name" required>    
+                    <input type="email" name="email" placeholder="Email" required>    
+                    <input type="url" name="website" placeholder="Your website (if exists)">    
+                    <textarea name="message" placeholder="How can I help?" rows="5" required></textarea>
 
                     <div class="form-footer">
                         <button type="submit" class="submit-btn">Get In Touch</button>
@@ -313,6 +313,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
