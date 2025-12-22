@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İsmet Uygur | Environmental Engineer & Developer</title>
+    <title>İsmet Uygur | Environmental Engineer & Jr. Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/jpg" href="image/Logo.jpg">
@@ -190,10 +190,13 @@
             <div class="skill-card">
                 <i class="fas fa-code"></i> <span>C++</span>
             </div>
-            <div class="skill-card">
+            <div class="skill-card" 
+                data-title="Laboratory Research"
+                data-items="UV-Vis Spectrophotometry, Fenton Process, Biochar Adsorption, pH & ORP Analysis, Wastewater Sampling">
                 <i class="fas fa-flask"></i>
                 <span>Lab Research</span>
             </div>
+
             <div class="skill-card">
                 <i class="fab fa-microsoft"></i>
                 <span>MS 365</span>
@@ -286,13 +289,18 @@
         </div>
     </section>
 
+    <div id="skillModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <ul id="modalList"></ul>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <p>All rights reserved by <strong>İsmet Uygur</strong> © 2025</p>
         </div>
     </footer>
-
 </body>
-
 </html>
-
