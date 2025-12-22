@@ -30,3 +30,7 @@ closeBtn?.addEventListener("click", () => {
 modal?.addEventListener("click", e => {
     if (e.target === modal) modal.classList.add("hidden");
 });
+card.setAttribute("tabindex", "0");
+card.addEventListener("keydown", e => {
+    if (e.key === "Enter") card.click();
+});
