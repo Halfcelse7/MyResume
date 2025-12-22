@@ -45,3 +45,19 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".experience-card, .project-row, .grid-card").forEach(el => {
     observer.observe(el);
 });
+const sections = document.querySelectorAll("[data-theme]");
+const waveObserver = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.body.classList.remove("wave-green", "wave-blue");
+
+                const theme = entry.target.dataset.theme;
+                if (theme === "green") document.body.classList.add("wave-green");
+                if (theme === "blue") document.body.classList.add("wave-blue");
+            }
+        });
+    },
+    { threshold: 0.6 }
+);
+sections.forEach(section => waveObserver.observe(section));
