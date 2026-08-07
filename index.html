@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İsmet Uygur | Environmental Engineer & Jr. Developer</title>
+    <link rel="icon" type="image/jpg" href="image/Logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#00ffaa',
+                            blue: '#0088ff',
+                            dark: '#050505',
+                            light: '#f8fafc',
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'marquee': 'marquee 35s linear infinite',
+                        'shake': 'shake 0.4s ease-in-out',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '25%': { transform: 'translateX(-8px)' },
+                            '50%': { transform: 'translateX(8px)' },
+                            '75%': { transform: 'translateX(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-brand-green selection:text-black">
+
+    <div id="cursor-container">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring cursor-ring-1"></div>
+        <div class="cursor-ring cursor-ring-2"></div>
+    </div>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="fixed top-0 w-full z-50 transition-all duration-300" id="header">
+        <div class="glass mx-auto mt-4 max-w-6xl rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter text-white z-10 cursor-hover logo-text">Half<span class="text-gradient theme-text">Celse</span></div>
+
+            <nav class="hidden md:flex gap-8 items-center z-10">
+                <a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Profile</a>
+                <a href="#experience" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Experience</a>
+                <a href="#projects" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Projects</a>
+                <a href="#academic" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Academic</a>
+                <a href="#skills" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Skills</a>
+                <a href="#contact" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Contact</a>
+            </nav>
+
+            <div class="z-10">
+                <a href="İsmet-Uygur-FlowCV-Resume.pdf" download="Ismet_Uygur_Resume.pdf" class="magnetic-btn relative overflow-hidden group bg-white text-black px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-hover">
+                    <span class="relative z-10 flex items-center gap-2">Resume <i class="fas fa-download"></i></span>
+                    <div class="absolute inset-0 bg-brand-green translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0 theme-bg"></div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex flex-col space-y-0">
+
+        <section id="about" class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 md:px-8 section-dark" data-theme="green">
+            <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 relative pt-32 pb-20">
+                <div class="blob-bg w-[400px] h-[400px] bg-brand-green/20 top-1/4 -left-20 theme-bg"></div>
+
+                <div class="flex-1 space-y-6 reveal z-10">
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-mono tracking-widest text-gray-300 uppercase mb-4">
+                        <i class="fas fa-circle text-[8px] text-brand-green animate-pulse mr-2 theme-text"></i> Available for work
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-white">
+                        Hello, I am <br>
+                        <span class="text-gradient theme-text" id="typewriter">İsmet Uygur</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-gray-400 font-medium font-mono">
+                        Environmental Engineer <br> <span class="text-white">Based in Turkey.</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-xl text-lg leading-relaxed">
+                        Passionate about technology, I specialize in environmental data analysis and automation. Focused on building innovative solutions and continuously expanding my skills.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4 font-mono text-xs text-gray-400 uppercase tracking-wider">
+                        <span class="glass px-4 py-2 rounded-lg border-white/5 text-white">Research-driven</span>
+                        <span class="glass px-4 py-2 rounded-lg border-white/5 text-white">Data-informed</span>
+                        <span class="glass px-4 py-2 rounded-lg border-white/5 text-white">Automation-first</span>
+                    </div>
+
+                    <div class="flex gap-4 pt-6">
+                        <a href="https://t.me/Halfcelse" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/in/ismet-uygur-a36746227/" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/smetUygur2" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/Halfcelse7" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex justify-center lg:justify-end reveal tilt-element z-10">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full p-2 glass flex items-center justify-center group cursor-hover">
+                        <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
+                        <img src="image/i.uygur.png" onerror="this.src='https://placehold.co/400x400/111/fff?text=I.U'" alt="Profile Illustration" class="rounded-full w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 tilt-content shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="blob-bg w-[500px] h-[500px] bg-brand-blue/10 top-1/2 right-0 theme-bg"></div>
+
+                <div class="text-center mb-20 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Professional <span class="text-gradient theme-text">Experience</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto rounded-full theme-gradient"></div>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto border-l border-black/10 pl-8 space-y-12 ml-4 md:ml-auto">
+
+                    <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
+                        <div class="absolute w-4 h-4 rounded-full bg-brand-blue -left-[41px] top-10 shadow-[0_0_15px_var(--theme-color)] theme-bg"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-black">Volunteer Project Assistant</h3>
+                                    <p class="text-sm font-mono text-gray-600">Gebze Technical University (TÜBİTAK 1001-ARDEB)</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-brand-blue theme-text theme-border">
+                                10/2025 - 07/2026
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                            Assisted in the production of biochar and polymer-coated heterogeneous Fenton catalysts. Performed catalyst characterization (XRD, XRF, SEM-EDS, BET, FT-IR) and participated in wastewater degradation experiments. Contributed to laboratory experiments, data collection, and interpretation of research results.
+                        </p>
+                        <div class="text-xs font-mono text-gray-500">
+                            <strong>Tools:</strong> XRD · XRF · SEM-EDS · BET · FT-IR · Fenton Catalysts
+                        </div>
+                    </div>
+
+                    <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-black">Project Assistant</h3>
+                                    <p class="text-sm font-mono text-gray-600">Gebze Technical University (TÜBİTAK 1001)</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
+                                06/2025 - 10/2025
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                            Performed soil and water analyses to support climate-based nutrient modeling for the Sea of Marmara / Susurluk Basin. Assisted in integrating analytical data into ML-based environmental predictions.
+                        </p>
+                        <div class="text-xs font-mono text-gray-500">
+                            <strong>Tools:</strong> Soil & Water Analysis · ML Integration · Nutrient Modeling · Climate Data
+                        </div>
+                    </div>
+
+                    <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-black">Chemical Laboratory Technician</h3>
+                                    <p class="text-sm font-mono text-gray-600">İşkur (GTU)</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
+                                03/2025 - 06/2025
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                            Modeled eco-friendly dye removal using biochar, improving wastewater treatment sustainability. Applied machine learning to predict dye removal efficiency, optimizing experimental design. Maintained detailed experimental records to ensure reproducibility and data integrity. Evaluated and enhanced analytical methods, increasing test reliability and precision.
+                        </p>
+                        <div class="text-xs font-mono text-gray-500">
+                            <strong>Tools:</strong> Biochar · ML Modeling · Data Integrity · Analytical Methods
+                        </div>
+                    </div>
+
+                    <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-black">Engineer Intern</h3>
+                                    <p class="text-sm font-mono text-gray-600">Altınyaldız Frame Space Factory</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
+                                06/2022 - 08/2022
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                            Managed on-site wastewater treatment operations, ensuring effluent discharge compliance and sustainable waste management. Performed precise analytical testing with spectrophotometers, pH meters, colorimeters, and balances to uphold quality control standards. Calibrated and maintained laboratory instruments, guaranteeing accurate measurements and data integrity. Executed standardized environmental testing protocols, supporting regulatory compliance and product consistency. Conducted routine laboratory maintenance, enhancing safety and operational efficiency.
+                        </p>
+                        <div class="text-xs font-mono text-gray-500">
+                            <strong>Tools:</strong> Spectrophotometry · pH Meters · Quality Control · Treatment Plant Management · Waste Management
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-32 relative section-dark bg-[#050505]" data-theme="green">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="text-center mb-20 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Featured <span class="text-gradient theme-text">Projects</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-green to-transparent mx-auto rounded-full theme-gradient"></div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-20">
+                    <!-- Project 1 -->
+                    <div class="flex flex-col lg:flex-row items-center gap-12 group reveal tilt-element">
+                        <div class="lg:w-1/2 relative flex justify-center">
+                            <div class="text-[120px] font-bold absolute -top-12 -left-8 text-white/5 font-mono pointer-events-none select-none z-0">01</div>
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
+                                <img src="image/tübitak.jpg" onerror="this.src='https://placehold.co/400x400/111/fff?text=TUBITAK'" alt="Tübitak Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 space-y-6 relative z-10">
+                            <h3 class="text-3xl font-bold text-white">TÜBİTAK 2209-A Project</h3>
+                            <p class="text-gray-400 leading-relaxed text-lg">
+                                Led a TÜBİTAK 2209-A funded undergraduate research project on UVA assisted heterogeneous Fenton oxidation using bauxite ore, red mud, and iron-based minerals for textile dye and wastewater treatment. Performed catalyst characterization using XRD, XRF, SEM-EDS, BET, and FTIR analyses, conducted process optimization through degradation, mineralization, and kinetic modeling studies, and evaluated the environmental sustainability of the process using Life Cycle Assessment (LCA). Applied machine learning techniques for process modeling and performance prediction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 group reveal tilt-element">
+                        <div class="lg:w-1/2 relative flex justify-center">
+                            <div class="text-[120px] font-bold absolute -top-12 -right-8 text-white/5 font-mono pointer-events-none select-none z-0">02</div>
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
+                                <img src="image/WB-Kopya.png" onerror="this.src='https://placehold.co/400x400/111/fff?text=Wolfblood'" alt="Wolfblood Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 space-y-6 relative z-10">
+                            <h3 class="text-3xl font-bold text-white">Wolfblood (Telegram)</h3>
+                            <p class="text-gray-400 leading-relaxed text-lg">
+                                Led a multilingual translation team (EN-TR-ES-ID-AR), ensuring terminology consistency, training members in GitHub workflows, and delivering 100+ technical documents with 98% accuracy. Optimized Python scripts to resolve functionality issues and enhance backend performance, while contributing to software and web development with cross-platform feature support and UX improvements, and designed web pages to improve usability and presentation.
+                            </p>
+                            <a href="https://t.me/wolfbloodbot" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
+                                <i class="fas fa-arrow-right -rotate-45"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="flex flex-col lg:flex-row items-center gap-12 group reveal tilt-element">
+                        <div class="lg:w-1/2 relative flex justify-center">
+                            <div class="text-[120px] font-bold absolute -top-12 -left-8 text-white/5 font-mono pointer-events-none select-none z-0">03</div>
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
+                                <img src="image/Narrador.jpg" onerror="this.src='https://placehold.co/400x400/111/fff?text=Narrador'" alt="Narrador Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 space-y-6 relative z-10">
+                            <h3 class="text-3xl font-bold text-white">Narrador (Telegram)</h3>
+                            <p class="text-gray-400 leading-relaxed text-lg">
+                                Led a multilingual translation team, managing contributors and workflows on GitHub while ensuring terminology consistency. Translated and localized 100+ technical documents (ES-EN-TR) with high linguistic and technical accuracy. Reviewed and debugged files to resolve syntax/code issues, coordinated cross-team communication, and supported software development by testing features and reporting critical backend/frontend bugs.
+                            </p>
+                            <a href="https://t.me/Narrador2bot" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
+                                <i class="fas fa-arrow-right -rotate-45"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Academic <span class="text-gradient theme-text">Study</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full border border-blue-500/20">DESIGN</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Wastewater Treatment Plant Design</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 403 | Aydın - Kuşadası WWTP</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-600 rounded-full border border-purple-500/20">POLICY</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Sustainability Concepts in Environmental Engineering</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 407 | Happy Planet Index (HPI)</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Membrane Processes</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 418 | Reverse Osmosis & Forward Osmosis</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-600 rounded-full border border-green-500/20">ANALYSIS</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Air Sampling and Analysis</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 417 | Phthalates</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Water Reuse and Recovery</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 419 | Oil & Gas Industry</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full border border-blue-500/20">DESIGN</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Industrial Waste Management</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 429 | Galvano Proje - Steel Industry</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-600 rounded-full border border-purple-500/20">POLICY</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Law and Management</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 430 | Green Deal & Carbon Board Adjustment Management (CBAM)</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-600 rounded-full border border-green-500/20">ANALYSIS</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Impact Assesment</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 314 | Assessment of the Environmental and Health Impacts of Electronic Waste Recycling Processes</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full border border-blue-500/20">DESIGN</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Energy and Environment</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 315 | Biogas plant for a livestock farm with a capacity of 1000-2000 cattle</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover md:col-span-2 lg:col-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Graduation Project I-II</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 491-492 | Use of Bauxite as Heterogeneous Catalysts for Textile Dye Removal in the Fenton Process and Kinetic Modeling</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-32 relative section-dark bg-[#050505]" data-theme="green">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">My Skills <span class="text-gradient theme-text">& Languages</span></h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Python Development"
+                         data-items="Automation Scripts, Data Analysis (Pandas/NumPy), Telegram Bot API, Backend Optimization, Web Scraping">
+                        <i class="fab fa-python text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Python</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="C++ Programming"
+                         data-items="Object-Oriented Programming, Memory Management, Data Structures, Algorithms, System Software Basics">
+                        <i class="fas fa-code text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">C++</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Material Characterization"
+                         data-items="SEM-EDS, XRD, XRF, BET Surface Area Analysis, FT-IR Spectroscopy, Heterogeneous Catalyst Evaluation">
+                        <i class="fas fa-microscope text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Characterization</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Environmental Analysis"
+                         data-items="COD & BOD Testing, TSS Measurement, EC & pH/ORP Analysis, TKN & TP Determination, KSAT, Wastewater Sampling">
+                        <i class="fas fa-vial text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Env. Analysis</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Project Management"
+                         data-items="Cross-functional Team Leadership, GitHub Workflows, Agile Methodologies, Resource Allocation, Timeline Management, Bug Tracking">
+                        <i class="fas fa-tasks text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Project Mgmt.</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Translation & Localization"
+                         data-items="Technical Document Translation, Software Localization (L10n), Terminology Management, Proofreading & Editing, Multi-language Support (EN-TR-ES-ID-AR)">
+                        <i class="fas fa-language text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Translation</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="English Proficiency"
+                         data-items="Advanced (C1-C2), Technical Writing, Fluent Speaking, Professional Communication">
+                        <i class="fas fa-globe-americas text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">English (Adv)</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Spanish Proficiency"
+                         data-items="Intermediate (B1-B2), Conversational Skills, Reading Comprehension, Basic Translation">
+                        <i class="fas fa-globe-europe text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Spanish (Int)</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Indonesian Proficiency"
+                         data-items="Intermediate Level, Cultural Familiarity, Basic Communication, Text Translation">
+                        <i class="fas fa-globe-asia text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Indonesian (Int)</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                    <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
+                         data-title="Arabic Proficiency"
+                         data-items="Beginner Level, Basic Reading & Advanced Writing, Fundamental Vocabulary">
+                        <i class="fas fa-globe text-4xl mb-4 text-gray-500 group-hover:text-brand-green transition-colors duration-300 theme-hover-text"></i>
+                        <span class="font-mono text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Arabic (Beg)</span>
+                        <div class="absolute top-3 right-4 text-sm text-white/20 font-mono group-hover:text-white/50 transition-colors">+</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="py-12 border-y border-black/5 overflow-hidden relative glass-card-light section-light bg-[#f8fafc] rounded-none" data-theme="green">
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f8fafc] to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f8fafc] to-transparent z-10"></div>
+
+            <div class="text-center mb-8 reveal relative z-20">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">Certificates</h2>
+            </div>
+
+            <div class="flex whitespace-nowrap animate-marquee relative z-0">
+                <div class="flex gap-4 px-4 items-center" id="cert-track">
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Intro to CyberSecurity</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Mobile App Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">AI Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Zeroday Research</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Python Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">HTML Essentials</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">C++ Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Cyber Security 101</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Offensive Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Defensive Security</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="flex gap-4 px-4 items-center">
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Intro to CyberSecurity</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Mobile App Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">AI Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Zeroday Research</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Python Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">HTML Essentials</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">C++ Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Cyber Security 101</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Offensive Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Defensive Security</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-32 section-dark bg-[#050505]" data-theme="blue">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="glass p-10 md:p-16 reveal relative overflow-hidden rounded-3xl">
+                    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/20 rounded-full blur-[100px] theme-bg pointer-events-none"></div>
+
+                    <div class="flex flex-col lg:flex-row gap-16 relative z-10">
+                        <div class="flex-1 space-y-8">
+                            <h2 class="text-5xl font-bold leading-tight text-white">Let's build<br><span class="text-gradient theme-text">something meaningful.</span></h2>
+                            <p class="text-gray-400 text-lg">I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences bridging engineering and software.</p>
+
+                            <div class="space-y-4 pt-4 font-mono text-sm">
+                                <div class="flex items-center gap-4 text-gray-300">
+                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue theme-text"><i class="fas fa-envelope"></i></div>
+                                    ismtuygur@gmail.com
+                                </div>
+                                <div class="flex items-center gap-4 text-gray-300">
+                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue theme-text"><i class="fas fa-phone"></i></div>
+                                    +90 530 925 84 64
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <form id="contact-form" action="https://formspree.io/f/xldqkdvz" method="POST" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                                <div class="relative group">
+                                    <input type="text" name="name" id="name" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="name" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your name</label>
+                                </div>
+                                <div class="relative group">
+                                    <input type="email" name="email" id="email" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="email" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Email</label>
+                                </div>
+                                <div class="relative group">
+                                    <input type="url" name="website" id="website" class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="website" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your website (if exists)</label>
+                                </div>
+                                <div class="relative group">
+                                    <textarea name="message" id="message" rows="4" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent resize-none theme-focus-border"></textarea>
+                                    <label for="message" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">How can I help?</label>
+                                </div>
+
+                                <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-white text-black font-bold relative overflow-hidden group cursor-hover">
+                                    <span class="relative z-10 block transition-transform group-hover:-translate-y-10" id="btn-text-1">Get In Touch</span>
+                                    <span class="absolute inset-0 z-10 flex items-center justify-center translate-y-10 group-hover:translate-y-0 transition-transform text-black" id="btn-text-2">Initialize <i class="fas fa-paper-plane ml-2"></i></span>
+                                    <div class="absolute inset-0 bg-brand-blue translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0 theme-bg"></div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="py-32 relative section-light bg-[#f8fafc]" data-theme="green">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Private <span class="text-gradient theme-text">References</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-green to-transparent mx-auto rounded-full theme-gradient"></div>
+                </div>
+
+                <div id="reference-lock" class="max-w-md mx-auto glass-card-light p-8 text-center reveal interactive-card transition-all duration-300">
+                    <i class="fas fa-lock text-4xl text-gray-400 mb-6 theme-text"></i>
+                    <p class="text-sm text-gray-600 mb-6 font-mono">This section is classified. Please enter the access code provided to you to view references.</p>
+                    <div class="flex gap-2 relative">
+                        <input type="password" id="ref-password" placeholder="Enter Access Code" class="w-full bg-transparent border border-black/10 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-brand-green transition-colors theme-focus-border font-mono text-sm">
+                        <button id="ref-unlock-btn" class="px-6 py-3 rounded-xl bg-black text-white font-bold hover:bg-brand-green hover:text-black transition-colors theme-hover-bg cursor-hover"><i class="fas fa-unlock"></i></button>
+                    </div>
+                    <p id="ref-error" class="text-red-500 text-xs font-mono mt-3 opacity-0 transition-opacity">Invalid access code. Please try again.</p>
+                </div>
+
+                <div id="reference-content" class="hidden opacity-0 transition-opacity duration-1000">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10 text-center py-8 text-gray-500 font-mono text-xs z-10 relative section-dark bg-[#050505]">
+        <p>All rights reserved by <strong class="text-white">İsmet Uygur</strong> © <span id="current-year"></span></p>
+    </footer>
+
+    <div id="skillModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="glass-card w-full max-w-md p-8 transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-hover"><i class="fas fa-times text-xl"></i></button>
+            <div class="flex items-center gap-4 mb-6">
+                <div id="modal-icon" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-brand-green theme-text border border-white/10"></div>
+                <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+            </div>
+            <ul id="modalList" class="space-y-3 font-mono text-sm text-gray-300">
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

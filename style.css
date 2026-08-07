@@ -1,0 +1,246 @@
+﻿:root {
+    --cursor-x: 50%;
+    --cursor-y: 50%;
+    --theme-color: #00ffaa;
+    --bg-dark: #050505;
+    --bg-light: #f8fafc;
+}
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+.section-dark {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+}
+.section-light {
+    background-color: var(--bg-light);
+    color: #050505;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(150,150,150,0.5);
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--theme-color);
+    }
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    opacity: 0.6;
+    transition: background-color 0.5s ease;
+}
+.glass {
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+.glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+    .glass-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+    }
+    .glass-card:hover::before {
+        opacity: 1;
+    }
+    .glass-card::after {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        border-radius: inherit;
+        padding: 1px;
+        background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), var(--theme-color), transparent 40%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .glass-card:hover::after {
+        opacity: 1;
+    }
+
+.glass-card-light {
+    background: linear-gradient(145deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 100%);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+    .glass-card-light::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.03), transparent 40%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+    }
+    .glass-card-light:hover::before {
+        opacity: 1;
+    }
+    .glass-card-light::after {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        border-radius: inherit;
+        padding: 1px;
+        background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), var(--theme-color), transparent 40%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .glass-card-light:hover::after {
+        opacity: 1;
+    }
+
+#cursor-container {
+    pointer-events: none;
+    z-index: 9999;
+}
+.cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--theme-color);
+    transition: width 0.2s, height 0.2s, background-color 0.3s;
+    z-index: 10000;
+}
+.cursor-ring {
+    border: 1px solid var(--theme-color);
+    transition: width 0.1s, height 0.1s, border-color 0.3s;
+}
+.cursor-ring-1 {
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+}
+.cursor-ring-2 {
+    width: 50px;
+    height: 50px;
+    opacity: 0.3;
+    border-style: dashed;
+}
+.hovering .cursor-ring-1 {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.05);
+    border-color: var(--theme-color);
+}
+.hovering .cursor-ring-2 {
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: rotateRing 4s linear infinite;
+}
+.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(0);
+}
+@keyframes rotateRing {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+body.light-section-active .cursor-ring-1,
+body.light-section-active .cursor-ring-2 {
+    background-color: rgba(0,0,0,0.05);
+}
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(90deg, currentColor, var(--theme-color));
+    transition: background-image 0.5s ease;
+}
+.tilt-element {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.tilt-content {
+    transform: translateZ(30px);
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+.theme-transition {
+    transition: color 0.5s, border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
+}
+.blob-bg {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+    border-radius: 50%;
+    animation: blob 10s infinite alternate;
+}
+header.header-light .glass {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0,0,0,0.1);
+}
+header.header-light .logo-text {
+    color: #000;
+}
+header.header-light nav a {
+    color: #555;
+}
+    header.header-light nav a:hover {
+        color: #000;
+    }
+
+header.header-light .magnetic-btn {
+    background: #000;
+    color: #fff;
+}
