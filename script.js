@@ -295,7 +295,7 @@ const referenceData = [
     },
     {
         name: "Prof. Dr. Mehmet Salim ÖNCEL",
-        title: "Head of Earth and Marine Science Institute at Gebze Technical University,
+        title: "Head of Earth and Marine Science Institute at Gebze Technical University",
         phone: "+90 532 416 06 86",
         email: "soncel@gtu.edu.tr"
     },
