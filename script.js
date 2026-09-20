@@ -231,31 +231,23 @@ document.addEventListener('keydown', (e) => {
 
 const handleFormSubmit = (e) => {
     e.preventDefault();
-    const btn1 = document.getElementById('btn-text-1');
     const btn2 = document.getElementById('btn-text-2');
     const form = document.getElementById('contact-form');
 
     btn2.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
 
-    setTimeout(() => {
-        btn2.innerHTML = '<i class="fas fa-check"></i> Protocol Sent!';
-        btn2.parentElement.classList.remove('bg-black', 'text-white');
-        btn2.parentElement.classList.add('bg-green-500', 'text-white');
-        form.reset();
-
-        const formData = new FormData(form);
-        fetch("https://formspree.io/f/xldqkdvz", {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).catch(err => console.log('Silently handled for demo purposes'));
-
-        setTimeout(() => {
-            btn2.innerHTML = 'Initialize <i class="fas fa-paper-plane ml-2"></i>';
-            btn2.parentElement.classList.add('bg-black', 'text-white');
-            btn2.parentElement.classList.remove('bg-green-500', 'text-white');
-        }, 3000);
-    }, 1500);
+    const formData = new FormData(form);
+    fetch("https://formspree.io/f/xldqkdvz", {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            window.location.href = "thank-you.html";
+        }
+    }).catch(err => {
+        btn2.innerHTML = 'Error. Try Again.';
+    });
 };
 
 window.addEventListener('load', () => {
@@ -379,4 +371,33 @@ const handleUnlock = () => {
 refUnlockBtn?.addEventListener('click', handleUnlock);
 refPasswordInput?.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') handleUnlock();
+});
+
+// FAQ Accordion Logic
+document.querySelectorAll('.faq-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('i');
+
+        // Close all other open FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.querySelector('.faq-answer').style.maxHeight = null;
+                item.querySelector('i').style.transform = 'rotate(0deg)';
+                item.classList.remove('bg-white/40'); // Remove active highlight
+            }
+        });
+
+        // Toggle the clicked FAQ
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.style.transform = 'rotate(0deg)';
+            faqItem.classList.remove('bg-white/40');
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.style.transform = 'rotate(180deg)';
+            faqItem.classList.add('bg-white/40'); // Add active highlight
+        }
+    });
 });
