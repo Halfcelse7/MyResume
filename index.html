@@ -2,10 +2,18 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://placehold.co; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İsmet Uygur | Environmental Engineer & Sustainable Tech Developer</title>
     <meta name="description" content="Portfolio of İsmet Uygur, an Environmental Engineer specializing in Fenton oxidation, wastewater treatment, and Python-driven sustainability solutions in Türkiye.">
-    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_CODE" />
+    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://halfcelse7.github.io/MyResume/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="İsmet Uygur | Environmental Engineer & Sustainable Tech Developer">
+    <meta property="og:description" content="Environmental Engineer specializing in Fenton oxidation, wastewater treatment and Python-driven sustainability solutions.">
+    <meta property="og:url" content="https://halfcelse7.github.io/MyResume/">
+    <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -16,65 +24,24 @@
             "@type": "CollegeOrUniversity",
             "name": "Gebze Technical University"
           },
-          "url": "https://yourwebsite.com",
+          "url": "https://halfcelse7.github.io/MyResume/",
           "sameAs": [
             "https://www.linkedin.com/in/ismet-uygur-a36746227/",
             "https://github.com/Halfcelse7"
           ]
         }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet" href="style.css">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Space Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            green: '#00ffaa',
-                            blue: '#0088ff',
-                            dark: '#050505',
-                            light: '#f8fafc',
-                        }
-                    },
-                    animation: {
-                        'spin-slow': 'spin 8s linear infinite',
-                        'blob': 'blob 7s infinite',
-                        'marquee': 'marquee 35s linear infinite',
-                        'shake': 'shake 0.4s ease-in-out',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        },
-                        shake: {
-                            '0%, 100%': { transform: 'translateX(0)' },
-                            '25%': { transform: 'translateX(-8px)' },
-                            '50%': { transform: 'translateX(8px)' },
-                            '75%': { transform: 'translateX(-8px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="antialiased selection:bg-brand-green selection:text-black">
+<body class="antialiased selection:bg-brand-green selection:text-black" data-current-theme="green">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[200] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+    <div id="theme-glow"></div>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <div id="cursor-container">
         <div class="cursor-dot"></div>
@@ -82,26 +49,24 @@
         <div class="cursor-ring cursor-ring-2"></div>
     </div>
 
-    <canvas id="bg-canvas"></canvas>
+    <header class="fixed top-0 w-full z-50 transition-all duration-500" id="header">
+        <div class="glass mx-auto mt-4 max-w-6xl rounded-2xl px-6 py-4 flex justify-between items-center transition-all duration-500">
+            <div class="text-2xl font-bold tracking-tighter text-white z-10 cursor-hover logo-text transition-colors">Half<span class="text-gradient theme-text">Celse</span></div>
 
-    <header class="fixed top-0 w-full z-50 transition-all duration-300" id="header">
-        <div class="glass mx-auto mt-4 max-w-6xl rounded-2xl px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter text-white z-10 cursor-hover logo-text">Half<span class="text-gradient theme-text">Celse</span></div>
-
-            <nav class="hidden md:flex gap-8 items-center z-10">
-                <a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Profile</a>
-                <a href="#experience" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Experience</a>
-                <a href="#projects" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Projects</a>
-                <a href="#academic" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Academic</a>
-                <a href="#skills" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Skills</a>
-                <a href="#contact" class="text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Contact</a>
+            <nav aria-label="Primary" class="hidden md:flex gap-8 items-center z-10">
+                <a href="#about" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Profile</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Experience</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Projects</a>
+                <a href="#academic" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Academic</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Skills</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-hover">Contact</a>
             </nav>
 
             <div class="z-10 flex gap-4">
                 <a href="#contact" class="hidden md:flex magnetic-btn relative overflow-hidden group bg-transparent border border-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm items-center transition-all hover:border-brand-green cursor-hover">
                     <span class="relative z-10">Let's Talk</span>
                 </a>
-                <a href="İsmet-Uygur-FlowCV-Resume.pdf" download="Ismet_Uygur_Resume.pdf" class="magnetic-btn relative overflow-hidden group bg-white text-black px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-hover header-btn">
+                <a href="Ismet_Uygur_Resume.pdf" download="Ismet_Uygur_Resume.pdf" class="magnetic-btn relative overflow-hidden group bg-white text-black px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-hover header-btn">
                     <span class="relative z-10 flex items-center gap-2">Resume <i class="fas fa-download"></i></span>
                     <div class="absolute inset-0 bg-brand-green translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0 theme-bg"></div>
                 </a>
@@ -109,11 +74,10 @@
         </div>
     </header>
 
-    <main class="relative z-10 flex flex-col space-y-0">
+    <main id="main" class="relative flex flex-col space-y-0" style="z-index: 10;">
 
-        <section id="about" class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 md:px-8 section-dark" data-theme="green">
+        <section id="about" class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 md:px-8 section-dark bg-[#050505]" data-theme="green">
             <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 relative pt-32 pb-20">
-                <div class="blob-bg w-[400px] h-[400px] bg-brand-green/20 top-1/4 -left-20 theme-bg"></div>
 
                 <div class="flex-1 space-y-6 reveal z-10">
                     <div class="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-mono tracking-widest text-gray-300 uppercase mb-4">
@@ -137,25 +101,24 @@
                     </div>
 
                     <div class="flex gap-4 pt-6">
-                        <a href="https://t.me/Halfcelse" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-telegram"></i></a>
-                        <a href="https://www.linkedin.com/in/ismet-uygur-a36746227/" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://x.com/smetUygur2" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/Halfcelse7" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-github"></i></a>
+                        <a href="https://t.me/Halfcelse" aria-label="Telegram" target="_blank" rel="noopener noreferrer" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/in/ismet-uygur-a36746227/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/smetUygur2" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/Halfcelse7" aria-label="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-btn w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:text-brand-green hover:border-brand-green transition-all cursor-hover theme-hover-text theme-hover-border text-white"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
 
                 <div class="flex-1 flex justify-center lg:justify-end reveal tilt-element z-10">
                     <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full p-2 glass flex items-center justify-center group cursor-hover">
                         <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
-                        <img src="image/i.uygur.png" onerror="this.src='https://placehold.co/400x400/111/fff?text=I.U'" alt="Profile Illustration" class="rounded-full w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 tilt-content shadow-2xl">
+                        <img src="image/i.uygur.webp" width="726" height="900" fetchpriority="high" decoding="async" data-fallback="https://placehold.co/400x400/111/fff?text=I.U" alt="Profile Illustration" class="rounded-full w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 tilt-content shadow-2xl">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="experience" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
-                <div class="blob-bg w-[500px] h-[500px] bg-brand-blue/10 top-1/2 right-0 theme-bg"></div>
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
 
                 <div class="text-center mb-20 reveal">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Professional <span class="text-gradient theme-text">Experience</span></h2>
@@ -164,6 +127,7 @@
 
                 <div class="relative max-w-4xl mx-auto border-l border-black/10 pl-8 space-y-12 ml-4 md:ml-auto">
 
+                    <!-- Project Assistant (TÜBİTAK 1001-ARDEB Project) -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
                         <div class="absolute w-4 h-4 rounded-full bg-gray-300 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -176,8 +140,8 @@
                                     <p class="text-sm font-mono text-gray-600">Gebze Technical University (TÜBİTAK 1001-ARDEB)</p>
                                 </div>
                             </div>
-                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-brand-blue theme-text theme-border">
-                                09/2026 - Present
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
+                                08/2026 - Present
                             </div>
                         </div>
                         <p class="text-gray-700 leading-relaxed text-sm mb-4">
@@ -188,6 +152,7 @@
                         </div>
                     </div>
 
+                    <!-- AEM Laboratory Experience -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
                         <div class="absolute w-4 h-4 rounded-full bg-brand-blue -left-[41px] top-10 shadow-[0_0_15px_var(--theme-color)] theme-bg"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -200,8 +165,8 @@
                                     <p class="text-sm font-mono text-gray-600">AEM Laboratory (AEM Çevre Laboratuvarı)</p>
                                 </div>
                             </div>
-                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
-                                08/2026 - 08/2026
+                            <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-brand-blue theme-text theme-border">
+                                08/2026 - Present
                             </div>
                         </div>
                         <p class="text-gray-700 leading-relaxed text-sm mb-4">
@@ -211,9 +176,10 @@
                             <strong>Tools:</strong> Field Sampling · ICP-OES · COD & TKN Analysis · Quality Assurance · Environmental Monitoring
                         </div>
                     </div>
-                    
+
+                    <!-- Volunteer Project Assistant -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
-                        <div class="absolute w-4 h-4 rounded-full bg-brand-blue -left-[41px] top-10 shadow-[0_0_15px_var(--theme-color)] theme-bg"></div>
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-300 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
@@ -236,8 +202,9 @@
                         </div>
                     </div>
 
+                    <!-- Project Assistant -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
-                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-300 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
@@ -260,8 +227,9 @@
                         </div>
                     </div>
 
+                    <!--  Chemical Laboratory Technician -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
-                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-300 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
@@ -284,8 +252,9 @@
                         </div>
                     </div>
 
+                    <!-- Engineer Intern -->
                     <div class="relative glass-card-light p-8 reveal interactive-card group cursor-hover">
-                        <div class="absolute w-4 h-4 rounded-full bg-gray-400 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
+                        <div class="absolute w-4 h-4 rounded-full bg-gray-300 group-hover:bg-brand-blue transition-colors -left-[41px] top-10 theme-hover-bg theme-transition"></div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-xl text-black group-hover:text-brand-blue transition-colors theme-hover-text">
@@ -293,7 +262,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-black">Engineer Intern</h3>
-                                    <p class="text-sm font-mono text-gray-600">Altınyaldız Frame Space Factory</p>
+                                    <p class="text-sm font-mono text-gray-600">Altınyaldız Space Frame Factory</p>
                                 </div>
                             </div>
                             <div class="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-mono text-gray-600">
@@ -309,11 +278,12 @@
                     </div>
 
                 </div>
+
             </div>
         </section>
 
         <section id="projects" class="py-32 relative section-dark bg-[#050505]" data-theme="green">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-20 reveal">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Featured <span class="text-gradient theme-text">Projects</span></h2>
                     <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-green to-transparent mx-auto rounded-full theme-gradient"></div>
@@ -326,11 +296,11 @@
                             <div class="text-[120px] font-bold absolute -top-12 -left-8 text-white/5 font-mono pointer-events-none select-none z-0">01</div>
                             <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
                                 <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
-                                <img src="image/tübitak.jpg" onerror="this.src='https://placehold.co/400x400/111/fff?text=TUBITAK'" alt="Tübitak Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <img loading="lazy" decoding="async" src="image/tübitak.jpg" data-fallback="https://placehold.co/400x400/111/fff?text=TUBITAK" alt="Tübitak Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             </div>
                         </div>
                         <div class="lg:w-1/2 space-y-6 relative z-10">
-                            <h3 class="text-3xl font-bold text-white">TÜBİTAK 2209-A Project</h3>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-brand-green transition-colors theme-hover-text">TÜBİTAK 2209-A Project</h3>
                             <p class="text-gray-400 leading-relaxed text-lg">
                                 Led a TÜBİTAK 2209-A funded undergraduate research project on UVA assisted heterogeneous Fenton oxidation using bauxite ore, red mud, and iron-based minerals for textile dye and wastewater treatment. Performed catalyst characterization using XRD, XRF, SEM-EDS, BET, and FTIR analyses, conducted process optimization through degradation, mineralization, and kinetic modeling studies, and evaluated the environmental sustainability of the process using Life Cycle Assessment (LCA). Applied machine learning techniques for process modeling and performance prediction.
                             </p>
@@ -343,15 +313,15 @@
                             <div class="text-[120px] font-bold absolute -top-12 -right-8 text-white/5 font-mono pointer-events-none select-none z-0">02</div>
                             <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
                                 <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
-                                <img src="image/WB-Kopya.png" onerror="this.src='https://placehold.co/400x400/111/fff?text=Wolfblood'" alt="Wolfblood Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
+                                <img loading="lazy" decoding="async" src="image/WB-Kopya.png" data-fallback="https://placehold.co/400x400/111/fff?text=Wolfblood" alt="Wolfblood Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
                             </div>
                         </div>
                         <div class="lg:w-1/2 space-y-6 relative z-10">
-                            <h3 class="text-3xl font-bold text-white">Wolfblood (Telegram)</h3>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-brand-green transition-colors theme-hover-text">Wolfblood (Telegram)</h3>
                             <p class="text-gray-400 leading-relaxed text-lg">
                                 Led a multilingual translation team (EN-TR-ES-ID-AR), ensuring terminology consistency, training members in GitHub workflows, and delivering 100+ technical documents with 98% accuracy. Optimized Python scripts to resolve functionality issues and enhance backend performance, while contributing to software and web development with cross-platform feature support and UX improvements, and designed web pages to improve usability and presentation.
                             </p>
-                            <a href="https://t.me/wolfbloodbot" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
+                            <a href="https://t.me/wolfbloodbot" aria-label="Wolfblood bot on Telegram" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-white hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
                                 <i class="fas fa-arrow-right -rotate-45"></i>
                             </a>
                         </div>
@@ -363,15 +333,15 @@
                             <div class="text-[120px] font-bold absolute -top-12 -left-8 text-white/5 font-mono pointer-events-none select-none z-0">03</div>
                             <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 glass tilt-content cursor-hover z-10 shadow-2xl flex items-center justify-center overflow-hidden">
                                 <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/20 group-hover:border-brand-green animate-spin-slow theme-hover-border"></div>
-                                <img src="image/Narrador.jpg" onerror="this.src='https://placehold.co/400x400/111/fff?text=Narrador'" alt="Narrador Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
+                                <img loading="lazy" decoding="async" src="image/Narrador.jpg" data-fallback="https://placehold.co/400x400/111/fff?text=Narrador" alt="Narrador Logo" class="rounded-full w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-[#222]">
                             </div>
                         </div>
                         <div class="lg:w-1/2 space-y-6 relative z-10">
-                            <h3 class="text-3xl font-bold text-white">Narrador (Telegram)</h3>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-brand-green transition-colors theme-hover-text">Narrador (Telegram)</h3>
                             <p class="text-gray-400 leading-relaxed text-lg">
                                 Led a multilingual translation team, managing contributors and workflows on GitHub while ensuring terminology consistency. Translated and localized 100+ technical documents (ES-EN-TR) with high linguistic and technical accuracy. Reviewed and debugged files to resolve syntax/code issues, coordinated cross-team communication, and supported software development by testing features and reporting critical backend/frontend bugs.
                             </p>
-                            <a href="https://t.me/Narrador2bot" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
+                            <a href="https://t.me/Narrador2bot" aria-label="Narrador bot on Telegram" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-white hover:bg-brand-green hover:text-black transition-all cursor-hover theme-hover-bg">
                                 <i class="fas fa-arrow-right -rotate-45"></i>
                             </a>
                         </div>
@@ -381,13 +351,14 @@
         </section>
 
         <section id="academic" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Academic <span class="text-gradient theme-text">Study</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto rounded-full theme-gradient"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+                    <!-- Academic Cards -->
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full border border-blue-500/20">DESIGN</span>
@@ -400,17 +371,17 @@
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-600 rounded-full border border-purple-500/20">POLICY</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-700 rounded-full border border-purple-500/20">POLICY</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Sustainability Concepts in Environmental Engineering</h3>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Sustainability Concepts</h3>
                             <p class="text-sm text-gray-600 italic">ENVE 407 | Happy Planet Index (HPI)</p>
                         </div>
                     </div>
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-700 rounded-full border border-orange-500/20">TREATMENT</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Membrane Processes</h3>
@@ -420,7 +391,7 @@
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-600 rounded-full border border-green-500/20">ANALYSIS</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-700 rounded-full border border-green-500/20">ANALYSIS</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Air Sampling and Analysis</h3>
@@ -430,7 +401,7 @@
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-700 rounded-full border border-orange-500/20">TREATMENT</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Water Reuse and Recovery</h3>
@@ -444,27 +415,27 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Industrial Waste Management</h3>
-                            <p class="text-sm text-gray-600 italic">ENVE 429 | Galvano Proje - Steel Industry</p>
+                            <p class="text-sm text-gray-600 italic">ENVE 429 | Galvano Project - Steel Industry</p>
                         </div>
                     </div>
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-600 rounded-full border border-purple-500/20">POLICY</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-purple-500/10 text-purple-700 rounded-full border border-purple-500/20">POLICY</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Law and Management</h3>
-                            <p class="text-sm text-gray-600 italic">ENVE 430 | Green Deal & Carbon Board Adjustment Management (CBAM)</p>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Law and Mgmt.</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 430 | Green Deal & CBAM</p>
                         </div>
                     </div>
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-600 rounded-full border border-green-500/20">ANALYSIS</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-green-500/10 text-green-700 rounded-full border border-green-500/20">ANALYSIS</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Impact Assesment</h3>
-                            <p class="text-sm text-gray-600 italic">ENVE 314 | Assessment of the Environmental and Health Impacts of Electronic Waste Recycling Processes</p>
+                            <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Environmental Impact Assessment</h3>
+                            <p class="text-sm text-gray-600 italic">ENVE 314 | E-Waste Recycling Impacts</p>
                         </div>
                     </div>
 
@@ -474,32 +445,32 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Energy and Environment</h3>
-                            <p class="text-sm text-gray-600 italic">ENVE 315 | Biogas plant for a livestock farm with a capacity of 1000-2000 cattle</p>
+                            <p class="text-sm text-gray-600 italic">ENVE 315 | Biogas plant for livestock farm</p>
                         </div>
                     </div>
 
                     <div class="glass-card-light p-6 flex flex-col justify-between reveal group interactive-card cursor-hover md:col-span-2 lg:col-span-3">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-600 rounded-full border border-orange-500/20">TREATMENT</span>
+                            <span class="text-xs font-mono px-3 py-1 bg-orange-500/10 text-orange-700 rounded-full border border-orange-500/20">TREATMENT</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-black mb-2 group-hover:text-brand-blue transition-colors theme-hover-text">Graduation Project I-II</h3>
                             <p class="text-sm text-gray-600 italic">ENVE 491-492 | Use of Bauxite as Heterogeneous Catalysts for Textile Dye Removal in the Fenton Process and Kinetic Modeling</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
         <section id="skills" class="py-32 relative section-dark bg-[#050505]" data-theme="green">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">My Skills <span class="text-gradient theme-text">& Languages</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-green to-transparent mx-auto rounded-full theme-gradient"></div>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-
+                    <!-- Skill Cards -->
                     <div class="skill-card glass flex flex-col items-center justify-center p-6 cursor-hover group interactive-card text-center aspect-square rounded-2xl relative"
                          data-title="Python Development"
                          data-items="Automation Scripts, Data Analysis (Pandas/NumPy), Telegram Bot API, Backend Optimization, Web Scraping">
@@ -584,7 +555,7 @@
             </div>
         </section>
 
-        <section id="certificates" class="py-12 border-y border-black/5 overflow-hidden relative glass-card-light section-light bg-[#f8fafc] rounded-none" data-theme="green">
+        <section id="certificates" class="py-12 border-y border-black/5 overflow-hidden relative glass-card-light section-light bg-[#f8fafc] rounded-none" data-theme="blue">
             <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f8fafc] to-transparent z-10"></div>
             <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f8fafc] to-transparent z-10"></div>
 
@@ -593,138 +564,138 @@
             </div>
 
             <div class="flex whitespace-nowrap animate-marquee relative z-0">
-                <div class="flex gap-4 px-4 items-center" id="cert-track">
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Intro to CyberSecurity</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Mobile App Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">AI Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Zeroday Research</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Python Essentials I-II</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">HTML Essentials</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">C++ Essentials I-II</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Cyber Security 101</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Offensive Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Defensive Security</span>
+                <div class="flex gap-4 px-4 items-center">
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Intro to CyberSecurity</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Mobile App Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">AI Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Zeroday Research</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Python Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">HTML Essentials</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">C++ Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Cyber Security 101</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Offensive Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Defensive Security</span>
                 </div>
                 <!-- Duplicate for seamless loop -->
                 <div class="flex gap-4 px-4 items-center">
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Intro to CyberSecurity</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Mobile App Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">AI Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Zeroday Research</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Python Essentials I-II</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">HTML Essentials</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">C++ Essentials I-II</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Cyber Security 101</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Offensive Security</span>
-                    <i class="fas fa-certificate text-[10px] text-brand-green theme-text"></i>
-                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-600 font-mono text-sm font-medium">Defensive Security</span>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 9001:2015 QMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 50001:2018 EnYS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">ISO 10002:2018 CSMS</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Intro to CyberSecurity</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Mobile App Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">AI Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Zeroday Research</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Python Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">HTML Essentials</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">C++ Essentials I-II</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">REDD+ Programa (ES)</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Cyber Security 101</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Offensive Security</span>
+                    <i class="fas fa-certificate text-[10px] text-brand-blue theme-text"></i>
+                    <span class="px-6 py-2 rounded-full border border-black/10 bg-white text-gray-700 font-mono text-sm font-medium">Defensive Security</span>
                 </div>
             </div>
         </section>
 
-       <section id="faq" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
-           <div class="max-w-4xl mx-auto px-4 md:px-8 relative z-10">
-               <div class="text-center mb-16 reveal">
-                   <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Frequently Asked <span class="text-gradient theme-text">Questions</span></h2>
-                   <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto rounded-full theme-gradient"></div>
-               </div>
+        <section id="faq" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
+            <div class="max-w-4xl mx-auto px-4 md:px-8 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Frequently Asked <span class="text-gradient theme-text">Questions</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto rounded-full theme-gradient"></div>
+                </div>
 
-               <div class="space-y-4 reveal">
-                   <!-- FAQ Item 1 -->
-                   <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
-                       <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
-                           What is your core engineering expertise?
-                           <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
-                       </button>
-                       <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
-                           <p class="text-gray-700 text-sm pb-6">I specialize in advanced wastewater treatment, specifically sunlight-assisted heterogeneous Fenton oxidation, biochar catalyst development, and laboratory-scale environmental analytics.</p>
-                       </div>
-                   </div>
+                <div class="space-y-4 reveal">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
+                        <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
+                            What is your core engineering expertise?
+                            <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
+                            <p class="text-gray-700 text-sm pb-6">I specialize in advanced wastewater treatment, specifically sunlight-assisted heterogeneous Fenton oxidation, biochar catalyst development, and laboratory-scale environmental analytics.</p>
+                        </div>
+                    </div>
 
-                   <!-- FAQ Item 2 -->
-                   <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
-                       <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
-                           How do you merge engineering with software?
-                           <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
-                       </button>
-                       <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
-                           <p class="text-gray-700 text-sm pb-6">I develop Python scripts and machine learning models to optimize treatment kinetics, predict degradation efficiencies, and simulate environmental impact via openLCA.</p>
-                       </div>
-                   </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
+                        <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
+                            How do you merge engineering with software?
+                            <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
+                            <p class="text-gray-700 text-sm pb-6">I develop Python scripts and machine learning models to optimize treatment kinetics, predict degradation efficiencies, and simulate environmental impact via openLCA.</p>
+                        </div>
+                    </div>
 
-                   <!-- FAQ Item 3 -->
-                   <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
-                       <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
-                           What laboratory techniques are you proficient in?
-                           <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
-                       </button>
-                       <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
-                           <p class="text-gray-700 text-sm pb-6">My hands-on analytical experience includes ICP-OES, COD, TKN, XRD, XRF, and UV-Vis spectrophotometry, gained through TÜBİTAK projects and commercial lab internships.</p>
-                       </div>
-                   </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
+                        <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
+                            What laboratory techniques are you proficient in?
+                            <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
+                            <p class="text-gray-700 text-sm pb-6">My hands-on analytical experience includes ICP-OES, COD, TKN, XRD, XRF, and UV-Vis spectrophotometry, gained through TÜBİTAK projects and commercial lab internships.</p>
+                        </div>
+                    </div>
 
-                   <!-- FAQ Item 4 -->
-                   <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
-                       <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
-                           Are you available for translation projects?
-                           <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
-                       </button>
-                       <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
-                           <p class="text-gray-700 text-sm pb-6">Yes, I lead localization workflows and translate technical documents across English, Turkish, Spanish, and Indonesian, with a focus on UI/UX integration.</p>
-                       </div>
-                   </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
+                        <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
+                            Are you available for translation projects?
+                            <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
+                            <p class="text-gray-700 text-sm pb-6">Yes, I lead localization workflows and translate technical documents across English, Turkish, Spanish, and Indonesian, with a focus on UI/UX integration.</p>
+                        </div>
+                    </div>
 
-                   <!-- FAQ Item 5 -->
-                   <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
-                       <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
-                           Where are you based?
-                           <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
-                       </button>
-                       <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
-                           <p class="text-gray-700 text-sm pb-6">I am based in Türkiye, operating out of the Gebze/Istanbul region, and I am open to hybrid or remote roles globally.</p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>        
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item glass-card-light border border-black/10 rounded-2xl overflow-hidden cursor-hover transition-colors">
+                        <button class="faq-button w-full p-6 text-left flex justify-between items-center font-bold text-lg text-black focus:outline-none">
+                            Where are you based?
+                            <i class="fas fa-chevron-down text-brand-blue theme-text transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 px-6">
+                            <p class="text-gray-700 text-sm pb-6">I am based in Türkiye, operating out of the Gebze/Istanbul region, and I am open to hybrid or remote roles globally.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="contact" class="py-32 section-dark bg-[#050505]" data-theme="blue">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <section id="contact" class="py-32 section-dark bg-[#050505]" data-theme="green">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="glass p-10 md:p-16 reveal relative overflow-hidden rounded-3xl">
-                    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/20 rounded-full blur-[100px] theme-bg pointer-events-none"></div>
+                    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-green/20 rounded-full blur-[100px] theme-bg pointer-events-none transition-colors"></div>
 
                     <div class="flex flex-col lg:flex-row gap-16 relative z-10">
                         <div class="flex-1 space-y-8">
@@ -733,39 +704,42 @@
 
                             <div class="space-y-4 pt-4 font-mono text-sm">
                                 <div class="flex items-center gap-4 text-gray-300">
-                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue theme-text"><i class="fas fa-envelope"></i></div>
-                                    ismtuygur@gmail.com
+                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-green theme-text"><i class="fas fa-envelope"></i></div>
+                                    <a href="mailto:ismtuygur@gmail.com" class="hover:text-brand-green transition-colors cursor-hover">ismtuygur@gmail.com</a>
                                 </div>
                                 <div class="flex items-center gap-4 text-gray-300">
-                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue theme-text"><i class="fas fa-phone"></i></div>
-                                    +90 530 925 84 64
+                                    <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-green theme-text"><i class="fas fa-phone"></i></div>
+                                    <a href="tel:+905309258464" class="hover:text-brand-green transition-colors cursor-hover">+90 530 925 84 64</a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="flex-1">
-                            <form id="contact-form" action="https://formspree.io/f/xldqkdvz" method="POST" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                            <form id="contact-form" action="https://formspree.io/f/xldqkdvz" method="POST" class="space-y-6">
                                 <div class="relative group">
-                                    <input type="text" name="name" id="name" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
-                                    <label for="name" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your name</label>
+                                    <input type="text" name="name" id="name" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-green transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="name" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-green peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your name</label>
                                 </div>
                                 <div class="relative group">
-                                    <input type="email" name="email" id="email" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
-                                    <label for="email" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Email</label>
+                                    <input type="email" name="email" id="email" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-green transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="email" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-green peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Email</label>
                                 </div>
                                 <div class="relative group">
-                                    <input type="url" name="website" id="website" class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent theme-focus-border">
-                                    <label for="website" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your website (if exists)</label>
+                                    <input type="url" name="website" id="website" class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-green transition-colors peer placeholder-transparent theme-focus-border">
+                                    <label for="website" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-green peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">Your website (if exists)</label>
                                 </div>
                                 <div class="relative group">
-                                    <textarea name="message" id="message" rows="4" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors peer placeholder-transparent resize-none theme-focus-border"></textarea>
-                                    <label for="message" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-blue peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">How can I help?</label>
+                                    <textarea name="message" id="message" rows="4" required class="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-green transition-colors peer placeholder-transparent resize-none theme-focus-border"></textarea>
+                                    <label for="message" class="absolute left-0 top-3 text-gray-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-green peer-valid:-top-4 peer-valid:text-xs theme-peer-focus-text">How can I help?</label>
                                 </div>
+
+                                <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                <p id="form-status" role="status" aria-live="polite" class="hidden text-sm font-mono text-red-400"></p>
 
                                 <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-white text-black font-bold relative overflow-hidden group cursor-hover">
                                     <span class="relative z-10 block transition-transform group-hover:-translate-y-10" id="btn-text-1">Get In Touch</span>
                                     <span class="absolute inset-0 z-10 flex items-center justify-center translate-y-10 group-hover:translate-y-0 transition-transform text-black" id="btn-text-2">Initialize <i class="fas fa-paper-plane ml-2"></i></span>
-                                    <div class="absolute inset-0 bg-brand-blue translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0 theme-bg"></div>
+                                    <div class="absolute inset-0 bg-brand-green translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0 theme-bg"></div>
                                 </button>
                             </form>
                         </div>
@@ -774,24 +748,17 @@
             </div>
         </section>
 
-        <section id="references" class="py-32 relative section-light bg-[#f8fafc]" data-theme="green">
-            <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <section id="references" class="py-32 relative section-light bg-[#f8fafc]" data-theme="blue">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Private <span class="text-gradient theme-text">References</span></h2>
-                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-green to-transparent mx-auto rounded-full theme-gradient"></div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-black">Professional <span class="text-gradient theme-text">References</span></h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto rounded-full theme-gradient"></div>
                 </div>
 
-                <div id="reference-lock" class="max-w-md mx-auto glass-card-light p-8 text-center reveal interactive-card transition-all duration-300">
-                    <i class="fas fa-lock text-4xl text-gray-400 mb-6 theme-text"></i>
-                    <p class="text-sm text-gray-600 mb-6 font-mono">This section is classified. Please enter the access code provided to you to view references.</p>
-                    <div class="flex gap-2 relative">
-                        <input type="password" id="ref-password" placeholder="Enter Access Code" class="w-full bg-transparent border border-black/10 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-brand-green transition-colors theme-focus-border font-mono text-sm">
-                        <button id="ref-unlock-btn" class="px-6 py-3 rounded-xl bg-black text-white font-bold hover:bg-brand-green hover:text-black transition-colors theme-hover-bg cursor-hover"><i class="fas fa-unlock"></i></button>
-                    </div>
-                    <p id="ref-error" class="text-red-500 text-xs font-mono mt-3 opacity-0 transition-opacity">Invalid access code. Please try again.</p>
-                </div>
-
-                <div id="reference-content" class="hidden opacity-0 transition-opacity duration-1000">
+                <div class="max-w-xl mx-auto glass-card-light p-8 text-center reveal interactive-card">
+                    <i class="fas fa-user-check text-4xl text-gray-400 mb-6 theme-text"></i>
+                    <p class="text-sm text-gray-700 mb-6 font-mono">Academic and industry references are available on request. Contact details are shared privately with the referees' consent.</p>
+                    <a href="#contact" id="ref-request-btn" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white font-bold hover:bg-brand-blue transition-colors theme-hover-bg cursor-hover">Request References <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -805,9 +772,9 @@
         <p>All rights reserved by <strong class="text-white">İsmet Uygur</strong> © <span id="current-year"></span></p>
     </footer>
 
-    <div id="skillModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="glass-card w-full max-w-md p-8 transform scale-95 transition-transform duration-300" id="modal-content">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-hover"><i class="fas fa-times text-xl"></i></button>
+    <div id="skillModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="glass w-full max-w-md p-8 transform scale-95 transition-transform duration-300 rounded-3xl" id="modal-content">
+            <button id="modal-close" aria-label="Close dialog" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-hover"><i class="fas fa-times text-xl"></i></button>
             <div class="flex items-center gap-4 mb-6">
                 <div id="modal-icon" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-brand-green theme-text border border-white/10"></div>
                 <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
@@ -815,6 +782,11 @@
             <ul id="modalList" class="space-y-3 font-mono text-sm text-gray-300">
             </ul>
         </div>
+    </div>
+
+    <div class="fixed bottom-0 left-0 w-full bg-[#050505]/90 backdrop-blur-md border-t border-white/10 p-4 md:hidden z-50 flex justify-between items-center transition-all duration-300">
+        <span class="text-white text-sm font-semibold">Available for Work</span>
+        <a href="#contact" class="bg-brand-green text-black px-6 py-2 rounded-xl font-bold text-sm theme-bg">Hire Me</a>
     </div>
 
     <script src="script.js" defer></script>
